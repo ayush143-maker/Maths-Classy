@@ -15,4 +15,4 @@ Open the local URL printed by the server in your browser. To create a production
 
 ## Project structure
 
-The Next.js page is under `app/`; reusable components are under `components/`, and supporting logic is under `lib/`. `PatternViewer` is the main component to inspect when changing how patterns are rendered. The project also includes `package.json` and Next.js and TypeScript configuration files at the root.
+The Next.js page is under `app/`; reusable components are under `components/`, and supporting logic is under `lib/`. `PatternViewer` is the main component to inspect when changing how patterns are rendered. At the root, `package.json` and the Next.js and TypeScript configuration files describe the project setup.
