@@ -1,6 +1,6 @@
 # Maths-Classy
 
-An interactive mathematical-pattern visualiser built with Next.js, React, and Three.js. A shared `PatternViewer` presents explorable patterns, with a Möbius-style pattern as the starting experience.
+An interactive mathematical-pattern visualiser built with Next.js, React, and Three.js. The page opens with a Möbius-style pattern in the shared `PatternViewer`, where visitors can explore the rendered pattern. Specific interaction controls are not described here.
 
 ## Run locally
 
