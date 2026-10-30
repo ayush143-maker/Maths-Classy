@@ -19,34 +19,33 @@ npm run build
 
 ## Project structure and customization
 
-The Next.js page is in `app/`, reusable components are in `components/`, and supporting logic is in `lib/`. For a visible text or page-composition change, start with the relevant page in `app/`; for pattern rendering, start with `PatternViewer` in `components/` and follow any supporting logic in `lib/`.
+The Next.js page is in `app/`, reusable components are in `components/`, and supporting logic is in `lib/`. For visible text or page composition, start with the relevant page in `app/`; for pattern rendering, start with `PatternViewer` in `components/` and follow supporting logic in `lib/`.
 
-The root includes `tailwind.config.ts` and `next.config.mjs` for project configuration. Review their existing contents before changing styling or framework settings. When moving or renaming files, update their imports and keep the existing relative paths valid. The root `package.json` and TypeScript configuration also describe project setup.
+The root includes `tailwind.config.ts` and `next.config.mjs` for project configuration. Review their existing contents before changing styling or framework settings. When moving or renaming files, update imports and keep relative paths valid. The root `package.json` and TypeScript configuration also describe project setup.
 
-## Asset and loading review checklist
+## Browser and platform reliability review checklist
 
-This is a checklist of actions to perform, not a record of verified results.
+This is a checklist for a future review, not a record of completed testing or verified results.
 
-- Inspect `app/`, `components/`, and `lib/` for local image, audio, font, or other media references. Check that each referenced file exists at the expected path and loads where used.
-- Look for media files that are no longer referenced and remove only those confirmed to be unused. For media that is used, prefer files sized for their rendered role; avoid retaining unnecessarily large originals or duplicate variants.
-- Review `package.json`, source imports, and the Next.js configuration for external font or script dependencies. Keep external requests only when they are intentional, and check that the page remains usable if an optional request is unavailable.
-- After changing or moving assets, revisit the page and check that imports and relative paths still resolve.
+- Review the app in current desktop browsers relevant to your audience and on mobile browsers such as Safari on iOS and Chrome on Android where applicable. Decide which browser versions and devices matter for this project; no compatibility results are recorded here.
+- Use the browser developer tools while loading the page and trying its visible interactions. Inspect the console for runtime errors or WebGL warnings, and the network panel for failed page, module, font, or other resource requests.
+- Check the rendered Möbius-style pattern at narrow mobile-sized and wide desktop-sized viewports. Look for clipping, unexpected scaling, or controls that are difficult to use. Where practical, compare with an actual mobile device rather than relying only on viewport emulation.
+- Inspect `app/`, `components/`, and `lib/` for local asset references and confirm the corresponding files and imports resolve. Review `package.json`, source imports, and Next.js configuration for external font or script requests; check their status and whether the page remains usable when optional requests fail.
+- After moving files or assets, revisit the page and check the network panel and rendered result for broken paths.
 
 ## Manual review checklist
 
-This is a checklist of actions to perform, not a record of verified results.
+These are review steps, not verified results.
 
-- Start the development server using the instructions above and open the local URL it prints. Review the app's initial page and its Möbius-style pattern.
-- Try any interactions actually presented by the page or `PatternViewer`. Observe whether the pattern responds as expected; do not assume controls that are not present.
-- Inspect the rendered pattern and page at a narrow mobile-sized viewport and a wide desktop-sized viewport. Check that the visualisation and any visible controls fit and remain usable.
-- If you change the pattern or related logic, review the rendered result and check that imports and relative paths still resolve.
+- Start the development server using the instructions above and review the initial page and its Möbius-style pattern.
+- Try interactions actually presented by the page or `PatternViewer`; do not assume controls that are not present.
+- After pattern or layout changes, repeat the browser, network, and viewport checks above.
 
 ## Accessibility review checklist
 
 These are future review checks, not verified accessibility results.
 
-- Use Tab and Shift+Tab to check whether all controls actually presented by the page or `PatternViewer` can be reached and operated from the keyboard. Check that focus order is logical and that no interaction depends only on a pointer.
-- Check that keyboard focus is clearly visible on each focused control and is not hidden by the rendered pattern or other content.
-- Review visible controls for meaningful accessible names. Check whether the Möbius-style visualisation has an appropriate text description if it communicates information beyond its appearance, and whether purely decorative visual content is identified as such.
-- Check text, labels, and control boundaries against their backgrounds for sufficient contrast in the rendered page; consider text placed over or near the pattern.
-- If the visualisation moves or animates, check its behavior with the operating system's reduced-motion preference enabled and review whether the page remains usable with motion reduced.
+- Use Tab and Shift+Tab to check keyboard access, logical focus order, and visible focus indicators for controls actually presented by the page or `PatternViewer`.
+- Review controls for meaningful accessible names. Check whether the visualisation needs a text description or is purely decorative.
+- Check text, labels, and control boundaries for contrast against their backgrounds.
+- If the visualisation moves or animates, check its behavior with the operating system's reduced-motion preference enabled.
