@@ -9,12 +9,10 @@ From the project folder, install dependencies and start the development server:
     npm install
     npm run dev
 
-Open the local URL printed by the server in your browser.
-
-To create a production build, run:
+Open the local URL printed by the server in your browser. To create a production build, run:
 
     npm run build
 
 ## Project structure
 
-The application is organised around `app/`, reusable components, and supporting logic in `lib/`. `PatternViewer` is the main component to inspect when changing how patterns are rendered.
+The Next.js page is under `app/`; reusable components are under `components/`, and supporting logic is under `lib/`. `PatternViewer` is the main component to inspect when changing how patterns are rendered. The project also includes `package.json` and Next.js and TypeScript configuration files at the root.
