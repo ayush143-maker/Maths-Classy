@@ -1,18 +1,22 @@
 # Maths-Classy
 
-A mathematical-pattern visualiser built with Next.js, React, and Three.js. The page opens with a Möbius-style pattern rendered in the shared `PatternViewer` component. Specific interaction controls are not described here.
+A mathematical-pattern visualiser built with Next.js, React, and Three.js. It opens with a Möbius-style pattern rendered by the shared `PatternViewer` component.
 
 ## Run locally
 
 From the project folder, install dependencies and start the development server:
 
-    npm install
-    npm run dev
+```sh
+npm install
+npm run dev
+```
 
-Open the local URL printed by the server in a browser. Review the page after making a change. To create a production build, run:
+Open the local URL printed by the server. To create a production build, run:
 
-    npm run build
+```sh
+npm run build
+```
 
 ## Project structure
 
-The Next.js page is under `app/`; reusable components are under `components/`, and supporting logic is under `lib/`. `PatternViewer` is the main component to inspect when changing how patterns are rendered. At the root, `package.json` and the Next.js and TypeScript configuration files describe the project setup.
+The Next.js page is in `app/`, reusable components are in `components/`, and supporting logic is in `lib/`. `PatternViewer` is the main component for changes to pattern rendering. The root `package.json` and Next.js and TypeScript configuration files describe the project setup.
