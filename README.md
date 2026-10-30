@@ -22,3 +22,12 @@ npm run build
 The Next.js page is in `app/`, reusable components are in `components/`, and supporting logic is in `lib/`. For a visible text or page-composition change, start with the relevant page in `app/`; for pattern rendering, start with `PatternViewer` in `components/` and follow any supporting logic in `lib/`.
 
 The root includes `tailwind.config.ts` and `next.config.mjs` for project configuration. Review their existing contents before changing styling or framework settings. When moving or renaming files, update their imports and keep the existing relative paths valid. The root `package.json` and TypeScript configuration also describe project setup.
+
+## Manual review checklist
+
+This is a checklist of actions to perform, not a record of verified results.
+
+- Start the development server using the instructions above and open the local URL it prints. Review the app's initial page and its Möbius-style pattern.
+- Try any interactions actually presented by the page or `PatternViewer`. Observe whether the pattern responds as expected; do not assume controls that are not present.
+- Inspect the rendered pattern and page at a narrow mobile-sized viewport and a wide desktop-sized viewport. Check that the visualisation and any visible controls fit and remain usable.
+- If you change the pattern or related logic, review the rendered result after the change and check that imports and relative paths still resolve.
