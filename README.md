@@ -23,6 +23,15 @@ The Next.js page is in `app/`, reusable components are in `components/`, and sup
 
 The root includes `tailwind.config.ts` and `next.config.mjs` for project configuration. Review their existing contents before changing styling or framework settings. When moving or renaming files, update their imports and keep the existing relative paths valid. The root `package.json` and TypeScript configuration also describe project setup.
 
+## Asset and loading review checklist
+
+This is a checklist of actions to perform, not a record of verified results.
+
+- Inspect `app/`, `components/`, and `lib/` for local image, audio, font, or other media references. Check that each referenced file exists at the expected path and loads where used.
+- Look for media files that are no longer referenced and remove only those confirmed to be unused. For media that is used, prefer files sized for their rendered role; avoid retaining unnecessarily large originals or duplicate variants.
+- Review `package.json`, source imports, and the Next.js configuration for external font or script dependencies. Keep external requests only when they are intentional, and check that the page remains usable if an optional request is unavailable.
+- After changing or moving assets, revisit the page and check that imports and relative paths still resolve.
+
 ## Manual review checklist
 
 This is a checklist of actions to perform, not a record of verified results.
@@ -30,7 +39,7 @@ This is a checklist of actions to perform, not a record of verified results.
 - Start the development server using the instructions above and open the local URL it prints. Review the app's initial page and its Möbius-style pattern.
 - Try any interactions actually presented by the page or `PatternViewer`. Observe whether the pattern responds as expected; do not assume controls that are not present.
 - Inspect the rendered pattern and page at a narrow mobile-sized viewport and a wide desktop-sized viewport. Check that the visualisation and any visible controls fit and remain usable.
-- If you change the pattern or related logic, review the rendered result after the change and check that imports and relative paths still resolve.
+- If you change the pattern or related logic, review the rendered result and check that imports and relative paths still resolve.
 
 ## Accessibility review checklist
 
